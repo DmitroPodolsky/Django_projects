@@ -1,0 +1,33 @@
+{% extends 'prestol.html' %}
+{% load static %}
+{% load my_filter %}
+{% block title %} {{ gay|capfirst|fan }} {% endblock %}
+{% block for_css %}
+<link rel="stylesheet" href="{% static 'shablon/css/info.css' %}">
+{% endblock %}
+{% block content%}
+{% include 'includes/join.html' %}
+<h2>hello {{ Jack.lol }} is index {{lo.0|add:'10'}}</h2>
+<h2>я работаю с html для {{ gay|capfirst|fan }}</h2>
+{% if gason is None %}
+     <h2>такого знака нету - {{ gay|capfirst }}</h2>
+{% else %}
+     <h1>{{ gason|upper|safe|lower }}</h1>
+     {% if gay == 'gay' %}
+          <h2>{{ Jack.kal|upper }}</h2>
+     {% elif gay == 'gay1'%}
+          <h2>{{ lo }}</h2>
+     {% endif %}
+{% endif %}
+<p>{{ good }}</p>
+{% include 'includes/join.html' %}
+{% endblock %}
+<!--кллюч gason - отвечает за обработку данных ссылки с помощью двойных фигурных скобок-->
+<!--ключи,индексы работают как атрибуты класса-->
+<!--синтаксис Django template language(DTL) - отвечает за методы в джанге обычно пишется так : key|method-->
+<!--escape-отвечает за форматирование в html файл, если там есть вызовы html-->
+<!--capfirst-увеличивает букву первой строки-->
+<!--https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#built-in-filter-reference фильтры,теги, документация джанго-->
+<!--условный оператор if работает как в питоне абсолютно-->
+<!--extend - отвечает за команду вноса данных шаблона,тоесть этот шаблон наследует основной шаблон prestol-->
+<!--мы в каждый блок с названием ставим значения, мы избавляемся от дублирования html-->

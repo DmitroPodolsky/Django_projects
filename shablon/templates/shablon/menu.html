@@ -1,0 +1,45 @@
+{% extends 'prestol.html' %}
+
+{% load static %}
+
+{% block title %}
+меню
+{% endblock %}
+
+{% block for_css %}
+<link rel="stylesheet" href="{% static 'shablon/css/menu.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/way.html' %}
+
+<h1>меню</h1>
+    <ul>
+        <h2>
+    {%for i in hon %}
+         {% if forloop.first %}
+              | <a href="/jackabo/{{i}}">{{ i|title }}</a>
+         {% elif forloop.last %}
+              | <a href="/jackabo/{{i}}">{{ i|title }}</a>
+         {% else %}
+              | <a href= "{% url 'determination' hey1=i %}">{{ i|title }}</a>
+         {% endif %}
+    {% endfor %}
+            </h2>
+    </ul>
+<h3>
+    {%for i,j in gun.items %}
+    <li style="color:purple">{{forloop.counter}}:{{ i|title }} {{ j|title|safe }}</li>
+    {% endfor %}
+</h3>
+
+{% include 'includes/way.html' %}
+
+{% endblock %}
+<!--там где url более правильный метод-->
+<!--include - это как кусочек кода который мы подставляем из разных html файлов без тела и головы-->
+<!--css - больще относиться к статичным файлам так как он не меняется-->
+<!--stylesheet - ето css файл-->
+<!--load - подгружает теги которые не встроены сразу-->
+<!--порядок использования блоков не важен!!-->
