@@ -1,0 +1,16 @@
+{% extends 'sql_start/base.html' %}
+
+
+{% block title %} База бро {% endblock %}
+
+
+{% block content %}
+<h2>список всех данных</h2>
+<ul>
+    {% for i in join %}
+    <li><a href="{{ i.get_url }}">{{ i.name }}</a> {{ i.rating }}% {{ i.year|default:"пусто" }} {{ i.budget }}</li>
+    {% endfor %}
+</ul>
+<h2><a href="{% url 'lol' %}">топ рейтинг</a></h2>
+{% endblock %}
+<!--обращайся как к атрибутам-->

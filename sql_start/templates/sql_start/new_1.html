@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} hey {% endblock %}</title>
+</head>
+<body>
+{% block content%}
+<h1>инфа об этой таблице:</h1>
+<h2>{{join.name}}</h2>
+<h2>{{join.rating}}%</h2>
+<h2>{{join.year|default:"неизвестно"}}</h2>
+<h2>{{join.budget}}</h2>
+<hr>
+<h2>инфа о второй базе данных</h2>
+<h3>имя {{join.second.sensei_name}}</h3>
+<h3>фамилия {{ join.second.sensei_famale }}</h3>
+<h3>номер {{join.second.id}}</h3>
+<h3><a href="{% url 'hanyo' %}">вернуться обратно в меню</a></h3>
+{% endblock %}
+<hr>
+<h2>инфа о третей базе данных</h2>
+{% for i in join.third.all %}
+    <li>{{ i }}</li>
+    {% endfor %}
+</body>
+</html>
+<!--join.second.sensei_name это мы обращаемся к другой таблице не вызывая саму её значит первая таб содержит полностью вторую чекай Soul-->

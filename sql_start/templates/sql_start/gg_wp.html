@@ -1,0 +1,23 @@
+{% extends 'sql_start/base.html' %}
+
+
+{% block title %} База бро {% endblock %}
+
+
+{% block content %}
+<h2>ТОП-3</h2>
+<ul>
+    {% for i in join %}
+    <li><a href="{{ i.get_url }}">{{ i.name }}</a></li>
+    {% endfor %}
+</ul>
+
+<ul>
+    <li>максимальный бюджет {{ kan.budget__max }}</li>
+    <li>минимальный бюджет {{ kan.budget__min }}</li>
+    <li>средний бюджет {{ kan.budget__avg }}</li>
+    <li>весь бюджет {{ kan.budget__sum }}</li>
+</ul>
+
+<h3><a href="{% url 'hanyo' %}">вернуться обратно в меню</a></h3>
+{% endblock %}
